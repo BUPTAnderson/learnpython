@@ -1,31 +1,33 @@
-class Screen(object):
-    @property
-    def width(self):
-        return self._width
-
-    @width.setter
-    def width(self, value):
-        self._width = value
-
-    @property
-    def height(self):
-        return self._height
-
-    @height.setter
-    def height(self, value):
-        self._height = value
-
-    @property
-    def resolution(self):
-        return self._width * self._height
+import time
 
 
-# 测试:
-s = Screen()
-s.width = 1024
-s.height = 768
-print('resolution =', s.resolution)
-if s.resolution == 786432:
-    print('测试通过!')
-else:
-    print('测试失败!')
+class Entity():
+    def __init__(self, object_type):
+        print('parent class init called')
+        self.object_type = object_type
+
+    def get_context_length(self):
+        raise Exception('get_context_length not implemented')
+
+    def print_title(self):
+        print(self.title)
+
+
+# a = Entity("entity")
+# a.print_title()
+a = "aaa"
+b = "bbb"
+c = f'+++++++++++++{a}' \
+    f'-------------{b}'
+
+
+def test(a, b, c):
+    print("+", a)
+    time.sleep(1)
+    print("-", b)
+    time.sleep(1)
+    print("*", c)
+
+
+test(a, f'+++++++++++++{a}'
+         f'-------------{b}', b)

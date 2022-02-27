@@ -1,6 +1,16 @@
 # d = {'a': 1, 'b': 2, 'c': 3}
 # for item in d.items():
 #     print(item[0], item[1])
+
+from collections.abc import Iterable
+
+isinstance('abc', Iterable)
+
+y = [x * x for x in range(1, 11)]
+print(y)
+# d = {'a': 1, 'b': 2, 'c': 3}
+# for item in d.items():
+#     print(item[0], item[1])
 #
 #
 # print(len([]))

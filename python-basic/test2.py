@@ -1,5 +1,8 @@
-a = ["a", "b"]
-b = ("c", "b")
-c = a + ["c"]
-print(a)
-print(c)
+e = 1
+try:
+    1/0
+except ZeroDivisionError as e:
+    pass
+print(e)
+
+# print('aaa')

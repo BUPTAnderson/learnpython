@@ -1,13 +1,29 @@
-class Student(object):
-    __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
+class Document():
+    WELCOME_STR = 'Welcome! The context for this book is {}.'
+
+    def __init__(self, title, author, context):
+        print('init function called')
+        self.title = title
+        self.author = author
+        self.__context = context
+
+    # 类函数
+    @classmethod
+    def create_empty_book(cls, title, author):
+        return cls(title=title, author=author, context='nothing')
+
+    # 成员函数
+    def get_context_length(self):
+        return len(self.__context)
+
+    # 静态函数
+    @staticmethod
+    def get_welcome(context):
+        return Document.WELCOME_STR.format(context)
 
 
-# __slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的：
-# 除非在子类中也定义__slots__，这样，子类实例允许定义的属性就是自身的__slots__加上父类的__slots__。
-class GraduateStudent(Student):
-    # __slots__ = ()
-    pass
+empty_book = Document.create_empty_book('What Every Man Thinks About Apart from Sex', 'Professor Sheridan Simove')
 
-g = GraduateStudent()
-g.score = 99
-print(g.score)
+print(empty_book.get_context_length())
+print(empty_book.get_welcome('indeed nothing'))
+
